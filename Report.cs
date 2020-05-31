@@ -6,26 +6,31 @@ namespace smartcity
     {
         private int ID;
         private int tripID;
-        private Tuple<string, string, double, double, double, double> edgeData;
-        // Tuple<"firstEnd", "secondEnd", time, avarageSpeed, density, distance>
-        private Boolean isEnded;
+        string firstEnd, secondEnd;
+        double time, distance, density, avSpeed, maxSpeed;
+        private Boolean endOfTrip;
 
-        public void setEdgeData(string firstEnd, string secondEnd, double time, double avarageSpeed, double density, double distance)
-        {
-            this.edgeData = new Tuple<string, string, double, double, double, double>(firstEnd, secondEnd, time, avarageSpeed, density, distance);
-        }
-
-        public Tuple<string, string, double, double, double, double> getEdgeData()
-        {
-            return this.edgeData;
-        }
-        public Report(int ID, int tripID, Tuple<string, string, double, double, double, double> edgeData, Boolean isEnded)
+        public Report(int ID, int tripID, string firstEnd, string secondEnd, double time, double distance, double density, double avSpeed, double maxSpeed, Boolean endOfTrip)
         {
             this.ID=ID;
             this.tripID=tripID;
-            this.edgeData=edgeData;
-            this.isEnded=isEnded;
+            this.firstEnd=firstEnd;
+            this.secondEnd=secondEnd;
+            this.time=time;
+            this.distance=distance;
+            this.density=density;
+            this.avSpeed=avSpeed;
+            this.maxSpeed=maxSpeed;
         }
-        public Boolean getIsEnded(){return isEnded;}
+        public Boolean getIsEnded(){return this.endOfTrip;}
+        public int getID(){return this.ID;}
+        public int getTripID(){return this.tripID;}
+        public string grtFirstEnd(){return this.firstEnd;}
+        public string getSecondEnd(){return this.secondEnd;}
+        public double getTime(){return this.time;}
+        public double getDistance(){return this.distance;}
+        public double getDensity(){return this.density;}
+        public double getAvSpeed(){return this.avSpeed;}
+        public double getMaxSpeed(){return this.maxSpeed;}
     }
 }
